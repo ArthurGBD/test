@@ -5,23 +5,23 @@ plan:
   name: HelloWorldPlan
   key: HWP
   description: A simple plan that prints Hello, World!
-  
+
 stages:
-  - name: HelloWorldStage
-    description: A stage that contains a job to print Hello, World!
-    manual: false
-    final: false
-    jobs:
-      - name: HelloWorldJob
-        key: HWJ
-        description: A job that executes a script to print Hello, World!
-        clean-working-dir: true
-        tasks:
-          - script:
-              description: Print Hello, World!
-              interpreter: BINSH_OR_CMDEXE
-              scriptBody: |
-                echo "Hello, World!"
+  - HelloWorldStage:
+      description: A stage that contains a job to print Hello, World!
+      manual: false
+      final: false
+      jobs:
+        - name: HelloWorldJob
+          key: HWJ
+          description: A job that executes a script to print Hello, World!
+          clean-working-dir: true
+          tasks:
+            - script:
+                description: Print Hello, World!
+                interpreter: BINSH_OR_CMDEXE
+                scriptBody: |
+                  echo "Hello, World!"
 
 triggers: []
 
