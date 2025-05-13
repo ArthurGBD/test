@@ -1,7 +1,7 @@
 ---
 version: 2
 plan:
-  project-key: PROJECT1
+  project-key: PSSRV172520
   key: PLAN1
   name: Simple Plan 1
 
