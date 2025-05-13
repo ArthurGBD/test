@@ -1,0 +1,15 @@
+---
+version: 2
+plan:
+  project-key: PROJECT3
+  key: PLAN3
+  name: Simple Plan 3
+
+stages:
+  - Stage 1:
+    - Job3
+
+Job3:
+  tasks:
+    - script:
+        - echo "Running Simple Plan 3"
