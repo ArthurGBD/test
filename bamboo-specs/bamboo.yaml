@@ -2,6 +2,9 @@
 # Main Bamboo YAML configuration
 #version: 2
 !include 'plans/planA.yaml'
+---
 !include 'plans/planB.yaml'
+---
 !include 'plans/planC.yaml'
+---
 !include 'plans/planD.yaml'
