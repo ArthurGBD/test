@@ -7,16 +7,16 @@ plan:
   description: A basic plan to print Hello, World!
 
 stages:
-  - name: HelloWorldStage
-    jobs:
-      - name: HelloWorldJob
-        key: HWJ
-        tasks:
-          - script:
-              description: Print Hello, World!
-              interpreter: /bin/sh
-              scriptBody: |
-                echo "Hello, World!"
+  - HelloWorldStage:
+      jobs:
+        - HelloWorldJob:
+            key: HWJ
+            tasks:
+              - script:
+                  description: Print Hello, World!
+                  interpreter: /bin/sh
+                  scriptBody: |
+                    echo "Hello, World!"
 
 triggers: []
 
