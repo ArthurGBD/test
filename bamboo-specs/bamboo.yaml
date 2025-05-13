@@ -1,4 +1,4 @@
 ---
 # Main Bamboo YAML configuration
 #version: 2
-!include 'test/bamboo-specs/plans/planA.yaml'
+!include 'plans/planA.yaml'
