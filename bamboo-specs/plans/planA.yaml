@@ -2,38 +2,13 @@
 version: 2
 plan:
   project-key: SIMPLE
-  name: BasicHelloWorldPlan
-  key: BHP
-  description: A basic plan to print Hello, World!
+  name: HelloWorld
+  key: HW
 
 stages:
-  - HelloWorldStage:
+  - Stage 1:
       jobs:
-        - HelloWorldJob:
-            key: HWJ
+        - Job 1:
             tasks:
               - script:
-                  description: Print Hello, World!
-                  interpreter: /bin/sh
-                  scriptBody: |
-                    echo "Hello, World!"
-
-triggers: []
-
-branches:
-  create: manually
-  delete: never
-  link-to-jira: false
-
-notifications: []
-
-labels: []
-
-dependencies: []
-
-plan-permissions:
-  - roles:
-      - logged-in
-    permissions:
-      - view
-...
+                  scriptBody: echo "Hello, World!"
