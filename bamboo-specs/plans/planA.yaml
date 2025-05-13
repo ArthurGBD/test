@@ -21,7 +21,7 @@ stages:
                   description: Print Hello, World!
                   interpreter: BINSH_OR_CMDEXE
                   scriptBody: |
-                    echo "Hello, World!"
+                    echo 'Hello, World!'
 
 triggers: []
 
