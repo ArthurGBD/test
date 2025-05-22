@@ -1,10 +1,137 @@
 ---
-# Main Bamboo YAML configuration
-#version: 2
-!include 'plans/planA.yaml'
+version: 2
+plan:
+  project-key: TEST123
+  key: TESTPLAN
+  name: Test Plan for Deployment
+stages:
+- Build Stage:
+    manual: false
+    final: false
+    jobs:
+    - Build Job
+Build Job:
+  key: BUILD1
+  description: Job de Teste
+  other:
+    clean-working-dir: true
+  tasks:
+  - checkout:
+      repository: Deployment Branch
+      force-clean-build: true
+      description: Checkout do Repositório
+  - script:
+      interpreter: SHELL
+      scripts:
+      - echo "Iniciando a execução do teste"
+      - echo "Build concluído com sucesso!"
+  artifacts:
+  - name: test-artifact
+    location: build
+    pattern: '*/**'
+    shared: true
+    required: true
+repositories:
+- test-repository:
+    type: git
+    url: https://github.com/ArthurGBD/test.git
+    branch: deployment-test
+    shared-credentials: GitHub
+    command-timeout-minutes: '120'
+triggers:
+- polling:
+    cron: 0 30 7 ? * 2,3,4,5,6
+    description: Build diário às 7:30 AM
+notifications:
+- events:
+  - plan-failed
+  recipients:
+  - emails:
+    - seu-email@empresa.com
+labels: []
 ---
-!include 'plans/planB.yaml'
+version: 2
+plan:
+  key: TEST123-TESTPLAN
+plan-permissions:
+- users:
+  - bamboo
+  permissions:
+  - view
+  - edit
+  - build
+  - clone
+  - admin
+  - view-configuration
+- groups:
+  - '#test-group'
+  permissions:
+  - view
+  - edit
+  - build
+  - view-configuration
+- roles:
+  - logged-in
+  permissions:
+  - view
+  - build
+...
 ---
-!include 'plans/planC.yaml'
+version: 2
+deployment:
+  name: TEST_DEPLOYMENT_PROJECT
+  source-plan: TEST123-TESTPLAN
+release-naming:
+  next-version-name: release-1
+  applies-to-branches: false
+  auto-increment: true
+  auto-increment-variables: []
+environments:
+- Test Environment
+Test Environment:
+  triggers:
+  - build-success
+  tasks:
+  - clean
+  - artifact-download:
+      artifacts:
+      - destination: output
+        name: test-artifact
+      description: Baixando o artefato do build
+  - script:
+      interpreter: SHELL
+      scripts:
+      - echo "Iniciando deployment..."
+      - echo "Artefato implantado com sucesso!"
+  final-tasks: []
+  variables:
+    environment: test
+    client: test-client
+  notifications:
+  - events:
+    - deployment-failed
+    recipients:
+    - emails:
+      - seu-email@empresa.com
 ---
-!include 'plans/planD.yaml'
+version: 2
+deployment:
+  name: TEST_DEPLOYMENT_PROJECT
+deployment-permissions:
+- users:
+  - TestUser
+  permissions:
+  - view
+  - edit
+  - deploy
+  - view-configuration
+environment-permissions:
+- Test Environment:
+  - users:
+    - TestUser
+    permissions:
+    - view
+    - edit
+    - deploy
+    - view-configuration
+...
