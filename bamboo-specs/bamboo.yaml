@@ -120,7 +120,7 @@ deployment-permissions:
 environment-permissions:
 - Test Environment:
   - users:
-    - TestUser
+    - bamboo
     permissions:
     - view
     - edit
