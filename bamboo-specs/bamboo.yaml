@@ -63,13 +63,6 @@ plan-permissions:
   - clone
   - admin
   - view-configuration
-- groups:
-  - '#test-group'
-  permissions:
-  - view
-  - edit
-  - build
-  - view-configuration
 - roles:
   - logged-in
   permissions:
