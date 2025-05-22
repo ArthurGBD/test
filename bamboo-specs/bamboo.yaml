@@ -55,7 +55,10 @@ plan:
   key: TEST123-TESTPLAN
 plan-permissions:
 - users:
-  - bamboo
+  - bamboo  # Test user: bamboo
+  - user1   # Test user: user1
+  - user2   # Test user: user2
+  - user3   # Test user: user3
   permissions:
   - view
   - edit
@@ -112,7 +115,10 @@ deployment:
   name: TEST_DEPLOYMENT_PROJECT
 deployment-permissions:
 - users:
-  - bamboo
+  - bamboo  # Test user: bamboo
+  - user1   # Test user: user1
+  - user2   # Test user: user2
+  - user3   # Test user: user3
   permissions:
   - view
   - edit
@@ -120,7 +126,10 @@ deployment-permissions:
 environment-permissions:
 - Test Environment:
   - users:
-    - bamboo
+    - bamboo  # Test user: bamboo
+    - user1   # Test user: user1
+    - user2   # Test user: user2
+    - user3   # Test user: user3
     permissions:
     - view
     - edit
