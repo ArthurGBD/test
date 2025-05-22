@@ -17,7 +17,7 @@ Build Job:
     clean-working-dir: true
   tasks:
   - checkout:
-      repository: Deployment Branch
+      repository: test-repository  # Match the name defined in the repositories section
       force-clean-build: true
       description: Checkout do Repositório
   - script:
@@ -32,7 +32,7 @@ Build Job:
     shared: true
     required: true
 repositories:
-- test-repository:
+- test-repository:  # Repository name must match the one used in the checkout task
     type: git
     url: https://github.com/ArthurGBD/test.git
     branch: deployment-test
