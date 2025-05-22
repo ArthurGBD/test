@@ -112,7 +112,7 @@ deployment:
   name: TEST_DEPLOYMENT_PROJECT
 deployment-permissions:
 - users:
-  - TestUser
+  - bamboo
   permissions:
   - view
   - edit
