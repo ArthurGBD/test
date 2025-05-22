@@ -123,7 +123,6 @@ deployment-permissions:
   permissions:
   - view
   - edit
-  - deploy
   - view-configuration
 environment-permissions:
 - Test Environment:
