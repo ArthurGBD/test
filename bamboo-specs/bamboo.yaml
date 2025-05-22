@@ -3,7 +3,7 @@ version: 2
 plan:
   project-key: TEST123
   key: TESTPLAN
-  name: Test Plan for Deployment
+  name: Test Plan for Deployment 1
 stages:
 - Build Stage:
     manual: false
