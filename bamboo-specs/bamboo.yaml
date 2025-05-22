@@ -1,10 +1,7 @@
 ---
 # Main Bamboo YAML configuration
 #version: 2
-!include 'plans/planA.yaml'
 ---
-!include 'plans/planB.yaml'
+!include builds/test-plan.yaml
 ---
-!include 'plans/planC.yaml'
----
-!include 'plans/planD.yaml'
+!include deployments/test-deployment.yaml
